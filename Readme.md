@@ -17,6 +17,7 @@ The following tasks were omitted due to time constraints:
 
   * serving Retina-ready images/assets
   * designing toggle button for show/hide functionality of the nav menu
+  * youtube thumbnail/modal overlay
   * using a static site generator
   * 'our clients' section, including carousel
 
