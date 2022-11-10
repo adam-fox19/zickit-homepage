@@ -1,0 +1,102 @@
+// import Sass variables
+@import '../__colors.scss';
+@import '../__fonts.scss';
+@import '../__responsive-mixin.scss';
+@import '../__typography.scss';
+@import '../__css-reset.scss';
+
+// import utility classes
+@import '__utility-classes.scss';
+
+
+// -------------------------
+// ------------------------- containers and wrappers
+
+
+/* hero full height of viewport on desktop
+   scales down slightly on mobile
+*/
+.hero__ {
+  color: $white;
+  text-align: center;
+  display: flex;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.2)), url("../../img/hero.jpg");
+  width: 100vw;
+  height: 90vh;
+  min-height: 400px;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  @include responsive_xs_mobile_upwards() {
+    min-height: 600px;
+  }
+  @include responsive_desktop_upwards() {
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+.hero__inner {
+  padding: 15px;
+}
+
+.hero__tickets-sold-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+}
+
+// -------------------------
+// ------------------------- colours and text
+
+.hero__inner h1 {
+  margin: 60px auto 15px;
+  @include responsive_xs_mobile_upwards() {
+    width: 70%;
+    margin-top: 50px;
+  }
+  @include responsive_mobile_upwards() {
+    margin-top: 20px;
+  }
+}
+
+.hero__inner p {
+  font-size: $mobile-prose-medium;
+  font-family: "Open Sans__light";
+  margin: 15px auto;
+  @include responsive_xs_mobile_upwards() {
+    font-size: $desktop-prose-medium;
+    width: 40%;
+  }
+}
+
+.hero__tickets-sold-wrapper p {
+  width: 90%;
+  font-size: $mobile-prose-small;
+  font-family: "Open Sans__light";
+  letter-spacing: 2px;
+  @include responsive_xs_mobile_upwards() {
+    font-size: $desktop-prose-small;
+  }
+}
+
+.hero__tickets-sold-wrapper hr {
+  width: 30%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
+
+
+// -------------------------
+// ------------------------- customised buttons
+
+.hero__inner .button__cta {
+  width: fit-content;
+  margin: 25px auto 40px;
+}

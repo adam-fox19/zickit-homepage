@@ -1,0 +1,129 @@
+// import Sass variables
+@import '../__colors.scss';
+@import '../__fonts.scss';
+@import '../__responsive-mixin.scss';
+@import '../__typography.scss';
+
+// import utility classes
+@import '__utility-classes.scss';
+
+
+// -------------------------
+// ------------------------- containers and wrappers
+
+.subscribe__container {
+  padding: 80px 15px;
+  position: relative;
+  @include responsive_mobile_upwards() {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+  @include responsive_desktop_upwards() {
+    width: 80%;
+  }
+}
+
+.footer__buy-tickets-wrapper-cta {
+  @include responsive_desktop_upwards() {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+  }
+}
+.footer__buy-tickets-wrapper {
+  @include responsive_desktop_upwards() {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.subscribe__form-wrapper {
+  @include responsive_desktop_upwards() {
+    margin: 0 auto;
+    flex-grow: 1;
+  }
+}
+
+
+// -------------------------
+// ------------------------- colours and text
+
+.subscribe__ {
+  background-color: $navy-dark;
+}
+
+.subscribe__container h3 {
+  color: $white;
+  font-size: $mobile-heading-medium;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  @include responsive_mobile_upwards() {
+    font-size: $desktop-heading-small;
+  }
+}
+
+.subscribe__container p {
+  color: $purple-light;
+  font-family: "Open Sans__light";
+  font-size: $mobile-prose-medium;
+  letter-spacing: 0.4px;
+  line-height: 1.6;
+  @include responsive_mobile_upwards() {
+    width: 55%;
+    font-size: $desktop-prose-small;
+  }
+}
+
+.subscribe__form-email-input {
+  background-color: $navy-dark;
+  border: none;
+  border-bottom: solid 1px $gray-light;
+  color: $purple-light;
+  margin: 60px 0 30px;
+  // fixed width desktop upwards but fill width below & scales with window
+  width: 100%;
+  padding: 0 0 17.5px 20px;
+  @include responsive_desktop_upwards() {
+    width: 300px;
+    margin: 0;
+    position: relative;
+    top: 30px;
+  }
+}
+
+.subscribe__form-email-input::placeholder {
+  color: $purple-light;
+  font-family: "Open Sans__light";
+  font-size: $mobile-prose-small;
+  letter-spacing: 0.4px;
+  @include responsive_mobile_upwards() {
+    font-size: $desktop-prose-small;
+  }
+}
+
+// -------------------------
+// ------------------------- customised buttons
+
+.subscribe__submit-button {
+  font-family: "Open Sans";
+  @include responsive_mobile() {
+    margin: 0 auto;
+    padding: 0 20px;
+    display: block;
+  }
+  @include responsive_mobile_upwards() {
+    display: inline;
+    position: relative;
+    top: 30px;
+    margin-left: 50px;
+  }
+  @include responsive_desktop_upwards() {
+      float: right;
+    }
+  }
+
+.subscribe__submit-button.button__cta:hover {
+  cursor: pointer;
+}

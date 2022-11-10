@@ -1,0 +1,30 @@
+// xs mobile
+@mixin responsive_xs_mobile() {
+  @media only screen and (max-width: 576px) {
+    @content;
+  }
+}
+// xs mobile
+@mixin responsive_xs_mobile_upwards() {
+  @media only screen and (min-width: 576px) {
+    @content;
+  }
+}
+// mobile
+@mixin responsive_mobile() {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+// mobile
+@mixin responsive_mobile_upwards() {
+  @media only screen and (min-width: 767px) {
+    @content;
+  }
+}
+// desktop
+@mixin responsive_desktop_upwards() {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}

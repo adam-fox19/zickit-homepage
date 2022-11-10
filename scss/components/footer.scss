@@ -1,0 +1,134 @@
+// import Sass variables
+@import '../__colors.scss';
+@import '../__fonts.scss';
+@import '../__responsive-mixin.scss';
+@import '../__typography.scss';
+
+// import utility classes
+@import '__utility-classes.scss';
+
+// -------------------------
+// ------------------------- containers and wrappers
+
+.footer__container {
+  padding: 40px 15px 25px;
+  @include responsive_mobile_upwards() {
+    display: flex;
+    // this wrapper displays footer's dividing border instead of .footer__buy-tickets on mobile upwards devices
+    border-bottom: solid 1px $gray-light;
+    padding: 80px 15px;
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+.footer__list-wrapper {
+  margin-bottom: 40px;
+  @include responsive_mobile_upwards() {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.footer__list-wrapper div {
+  @include responsive_mobile_upwards() {
+    width: 23%;
+  }
+}
+
+.footer__buy-tickets {
+  text-align: center;
+  // this wrapper displays the footer's dividing border, only on mobile
+  border-bottom: solid 1px $gray-light;
+  @include responsive_mobile_upwards() {
+    text-align: left;
+    margin-left: auto;
+    width: 25%;
+    border-bottom: none;
+  }
+}
+
+.footer__copyright-wrapper {
+  margin: 0 auto;
+  width: 80%;
+  padding-bottom: 40px;
+  @include responsive_mobile_upwards() {
+    padding: 25px 0;
+  }
+}
+
+
+// -------------------------
+// ------------------------- colours and text
+
+footer {
+  background-color: $navy-darkest;
+}
+
+footer h4 {
+  color: $white;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  @include responsive_mobile_upwards() {
+    margin-top: 0;
+  }
+}
+
+footer p,
+footer ul li a {
+  color: $purple-light;
+}
+
+footer p {
+  font-size: $mobile-prose-small;
+  line-height: 1.5;
+  margin-top: 25px;
+  padding-bottom: 25px;
+  @include responsive_mobile_upwards() {
+    width: 70%;
+    font-size: $desktop-prose-small;
+    padding-bottom: 0;
+  }
+}
+
+.footer__copyright {
+  color: $white;
+  font-family: "Open Sans__light";
+  font-size: $mobile-prose-small;
+  letter-spacing: 2px;
+  display: inline;
+  @include responsive_mobile_upwards() {
+    font-size: calc(1px + 0.7vw);
+  }
+}
+
+footer ul li {
+  padding: 3.5px 0;
+  font-size: $mobile-prose-medium;
+  @include responsive_mobile_upwards() {
+    font-size: $desktop-prose-small;
+  }
+}
+
+
+// -------------------------
+// ------------------------- customised buttons and icons
+
+.footer__buy-tickets .button__cta {
+  @include responsive_mobile() {
+    margin: 0 auto;
+    // button will inherit parent width of 100% without this rule
+    width: fit-content;
+    padding: 0 20px;
+  }
+}
+
+.footer__fa-icon {
+  color: $blue-light;
+}
+
+.footer__ig-icon {
+  color: $purple-light;
+  margin: 0 20px;
+}

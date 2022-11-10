@@ -1,0 +1,215 @@
+// import Sass variables
+@import '../__colors.scss';
+@import '../__fonts.scss';
+@import '../__responsive-mixin.scss';
+@import '../__typography.scss';
+@import '../__css-reset.scss';
+
+// import utility classes
+@import '__utility-classes.scss';
+
+
+header {
+  // absolute positioned and highest z-index to pin & sit ontop of hero element upon load
+  position: absolute;
+  width: 100%;
+  z-index: 4;
+}
+
+// -------------------------
+// ------------------------- header banner
+
+.header__banner {
+  background-color: $navy-light;
+  text-align: center;
+  padding: 20px 0;
+  font-size: $desktop-prose-small;
+}
+
+.header__banner span {
+  color: $blue-light;
+}
+
+.header__banner a {
+  color: $accent-pink;
+  font-weight: bold;
+  letter-spacing: 0.25px;
+  @include responsive_xs_mobile() {
+    // banner text stacks vertically on xs screens but not higher
+    display: block;
+    margin-top: 5px;
+  }
+  @include responsive_xs_mobile_upwards() {
+    position: relative;
+    left: 7.5px;
+    bottom: 1.5px;
+  }
+}
+
+// -------------------------
+// ------------------------- header non-overlay state
+
+// ----- wrappers and containers
+
+.header__nav {
+  color: $white;
+  font-size: $desktop-prose-medium;
+  text-align: center;
+  height: 75px;
+  padding: 0 20px;
+  display: flex;
+  background-color: transparent;
+  position: relative;
+}
+
+.header__nav-img-wrapper {
+  align-self: center;
+  @include responsive_xs_mobile() {
+    width: 40%;
+    text-align: left;
+  }
+}
+
+.header__nav-toggle-wrapper {
+  @include responsive_mobile_upwards() {
+    // nav toggle hidden mobile and above when nav list items are displayed
+    display: none;
+  }
+}
+
+.header__nav-toggle-wrapper:hover {
+  @include responsive_mobile_upwards() {
+    color: $accent-yellow;
+    cursor: pointer;
+  }
+}
+
+
+// ----- colours and text
+
+.header__nav ul {
+  @include responsive_mobile() {
+    display: none;
+  }
+  @include responsive_mobile_upwards() {
+    display: block;
+    align-self: center;
+    margin: 0 auto;
+    // free to fill space between CTA button & logo
+    flex-grow: 1;
+  }
+}
+
+.header__nav li {
+  display: inline;
+  // reduced left/right margin below desktop to prevent cta button from overlapping/wrapping
+  margin: 0 15px;
+  @include responsive_desktop_upwards() {
+    margin: 0 22.5px;
+  }
+}
+
+.header__nav li a {
+  color: $white;
+}
+
+
+// ----- customised buttons and icons
+
+.header__nav .button__cta {
+  // hidden in mobile view
+  display: none;
+  // aligning button to right
+  margin-left: auto;
+  margin-top: 10px;
+  @include responsive_mobile_upwards() {
+    display: flex;
+  }
+}
+
+#header__nav-toggle-open {
+  display: block;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  // fixed font size for icon
+  font-size: 20px;
+  @include responsive_xs_mobile_upwards() {
+    font-size: 30px;
+  }
+  @include responsive_mobile_upwards() {
+    display: none;
+  }
+}
+
+#header__nav-toggle-close {
+  // only displayed as part of overlay through JS when toggle open button clicked
+  display: none;
+  font-size: 30px;
+  @include responsive_mobile() {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+}
+
+
+// -------------------------
+// ------------------------- header overlay state
+
+// ----- wrappers and containers
+
+
+/* class added when nav__toggle-open is clicked
+   class removed either when nav__toggle-closed is clicked or window resized above responsive mobile mixin
+   full site overlay when active
+*/
+.header__nav.open {
+  @include responsive_mobile() {
+    background-color: $navy-light;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 10;
+    -webkit-transition: opacity 0.35s, height 0.35s;
+    transition: opacity 0.35s, height 0.35s;
+    overflow: hidden;
+    padding: 25px;
+    // nav links are stacked vertically in overlay
+    flex-direction: column;
+  }
+}
+
+.header__nav.open .header__nav-img-wrapper {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+
+// ----- colours and text
+
+.header__nav.open ul {
+  display: block;
+  font-size: $mobile-heading-large;
+  font-weight: bold;
+  margin: auto;
+  align-self: center;
+  position: relative;
+}
+
+.header__nav.open li {
+  display: block;
+  margin: 20px 0;
+}
+
+
+// ----- customised buttons and icons
+
+.header__nav.open button {
+  display: block;
+  margin: 0 auto;
+}

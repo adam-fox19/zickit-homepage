@@ -1,0 +1,181 @@
+// import Sass variables
+@import '../__colors.scss';
+@import '../__fonts.scss';
+@import '../__responsive-mixin.scss';
+@import '../__typography.scss';
+
+// import utility classes
+@import '__utility-classes.scss';
+
+
+// -------------------------
+// ------------------------- containers and wrappers
+
+.how-works__ {
+  @include responsive_xs_mobile_upwards() {
+    margin-top: 65px;
+  }
+}
+
+.how-works__row {
+  padding: 15px;
+  margin: 30px auto;
+  @include responsive_xs_mobile_upwards() {
+    display: flex;
+    width: 80%;
+    // rows have far more margin mobile upwards to accomodate larger images
+    margin: 80px auto;
+    padding: 0;
+  }
+}
+
+.how-works__box {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+  @include responsive_xs_mobile_upwards() {
+    width: 50%;
+    padding: 15px;
+    margin: 0;
+  }
+}
+
+.how-works__text-box {
+  @include responsive_xs_mobile_upwards() {
+    padding-left: 60px;
+  }
+}
+
+
+// -------------------------
+// ------------------------- colours and text
+
+
+.how-works__number {
+  // fixed size as decorative text
+  font-size: 40px;
+  color: $cyan-medium;
+  font-family: "Montserrat__bold";
+  // pinned behind parent box heading
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+  @include responsive_xs_mobile_upwards() {
+    line-height: 0.8;
+    top: 5px;
+    left: 55px;
+  }
+}
+
+.how-works__box h2 {
+  font-size: $desktop-heading-large;
+}
+
+.how-works__box h3 {
+  color: $navy-dark;
+  font-weight: 800;
+  position: relative;
+  // sits infront of how__works-number
+  z-index: 2;
+  margin-bottom: 15px;
+  @include responsive_xs_mobile_upwards() {
+    font-size: calc(2px + 2vw);
+    margin-bottom: 30px;
+  }
+}
+
+.how-works__text-box p {
+  color: $navy-dark;
+  letter-spacing: 0.4px;
+  width: 100%;
+  margin-bottom: 15px;
+  @include responsive_xs_mobile_upwards() {
+    margin-bottom: 30px;
+  }
+  @include responsive_mobile_upwards() {
+    width: 70%;
+    margin-bottom: 50px;
+  }
+}
+
+.how-works__text-box .how-works__features {
+  color: $blue-light;
+  font-family: "Montserrat__bold";
+  font-size: $mobile-prose-small;
+  letter-spacing: 1.5px;
+  @include responsive_xs_mobile_upwards() {
+    font-size: $desktop-prose-small;
+    margin-bottom: 15px;
+  }
+  @include responsive_mobile_upwards() {
+    display: inline;
+  }
+}
+
+.how-works__outline-blue  {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #3b8ef9;
+  font-family: "Montserrat__bold";
+}
+
+.how-works__solid-blue {
+  color: $blue-light;
+  font-weight: 800;
+  font-family: "Montserrat__bold";
+}
+
+
+// -------------------------
+// ------------------------- images and icons
+
+.how-works__graphic {
+  width: 60%;
+  position: relative;
+  bottom: 50px;
+  // sits ontop of bg-rectangles
+  z-index: 2;
+  display: block;
+  margin: 0 auto;
+  @include responsive_xs_mobile_upwards() {
+    width: 85%;
+    margin: 0;
+  }
+}
+
+#how_works__payments-img {
+  // slightly larger graphic than others, so scaled down further
+  width: 50%;
+  @include responsive_xs_mobile_upwards() {
+    width: 75%;
+  }
+}
+
+// decorative shapes layered underneath graphics
+.how_works__bg-rectangle-left {
+  position: absolute;
+  z-index: 1;
+  top: -20px;
+  left: 30px;
+  width: 80%;
+  @include responsive_xs_mobile_upwards() {
+    top: 0;
+    left: -30px;
+    width: 100%;
+  }
+}
+
+.how_works__bg-rectangle-right {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 30px;
+  width: 80%;
+  @include responsive_desktop_upwards() {
+    right: -30px;
+    width: 100%;
+  }
+}
+
+.how-works__box .button__cta-circle {
+  margin-left: 20px;
+}

@@ -1,0 +1,45 @@
+// import Sass variables
+
+@import '__css-reset.scss';
+@import '__colors.scss';
+@import '__fonts.scss';
+@import '__responsive-mixin.scss';
+@import '__typography.scss';
+
+// import utility classes
+
+@import '__utility-classes.scss';
+
+// import components
+
+@import 'components/buttons.scss';
+@import 'components/header.scss';
+@import 'components/hero.scss';
+@import 'components/how-works.scss';
+@import 'components/subscribe.scss';
+@import 'components/footer.scss';
+
+h1,
+h2,
+h3,
+h4,
+ {
+  font-family: "Montserrat__bold";
+}
+
+h1 {
+  font-size: $mobile-heading-large;
+  @include responsive_desktop_upwards() {
+    font-size: $desktop-heading-large;
+  }
+}
+
+a,
+p,
+span {
+  font-family: "Open Sans";
+}
+
+a {
+  text-decoration: none;
+}

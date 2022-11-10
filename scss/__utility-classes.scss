@@ -1,0 +1,9 @@
+@import '__responsive-mixin.scss';
+
+// utility classes
+
+.ut__hide-mobile {
+  @include responsive_xs_mobile() {
+    display: none;
+  }
+}

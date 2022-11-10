@@ -1,0 +1,107 @@
+
+// import Sass variables
+@import '../__colors.scss';
+@import '../__fonts.scss';
+@import '../__responsive-mixin.scss';
+@import '../__typography.scss';
+
+// import utility classes
+@import '__utility-classes.scss';
+
+
+.button__cta {
+  background-color: $accent-pink;
+  color: $white;
+  // fixed font-size in buttons
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // cta buttons same height on all devices
+  height: 50px;
+  // but will scale down width on mobile, up to 100px;
+  padding: 0 4%;
+  min-width: 100px;
+  border-radius: 50px;
+  @include responsive_xs_mobile_upwards() {
+    transition: 0.25s ease-in-out;
+    font-size: 11px;
+    width: 170px;
+  }
+}
+
+.button__cta:hover {
+  @include responsive_mobile_upwards() {
+    background-color: $accent-yellow;
+    color: $accent-pink;
+    transform: translate(1px, -1px);
+  }
+}
+
+.button__cta-border {
+  @include responsive_mobile_upwards() {
+    outline: 1.5px solid $accent-pink;
+    outline-offset: 3.5px;
+  }
+}
+
+.button__cta-border:hover {
+  @include responsive_mobile_upwards() {
+    background-color: $accent-yellow;
+    outline: 1.5px solid $accent-yellow;
+  }
+}
+
+.button__cta-secondary {
+  background-color: $blue-light;
+  @include responsive_mobile_upwards() {
+    outline: 1.5px solid $blue-light;
+    transition: 0.25s ease-in-out;
+  }
+}
+
+.button__cta-secondary:hover {
+  @include responsive_mobile_upwards() {
+    background-color: $white;
+    color: $accent-pink;
+    outline: 1.5px solid $white;
+  }
+}
+
+.button__cta-circle {
+  color: $blue-light;
+  background-color: $cyan-dark;
+  font-size: 18px;
+  font-weight: 800;
+  // same height and width to ensure circular button with border radius;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  @include responsive_mobile_upwards() {
+    transition: 0.25s ease-in-out;
+    outline: 1px solid $blue-light;
+    outline-offset: 3.5px;
+  }
+}
+
+.button__cta-circle:hover {
+  @include responsive_mobile_upwards() {
+    color: $white;
+    background-color: $blue-light;
+    cursor: pointer;
+  }
+}
+
+.button__cta-arrow {
+  // fixed font-size can be bigger here as the only font is an arrow symbol
+  font-size: 16px;
+  margin-left: 5px;
+  // lining up arrow on y axis with nearby text
+  position: relative;
+  bottom: 1.5px;
+}
